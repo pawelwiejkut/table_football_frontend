@@ -1,0 +1,49 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="odataJPAService">
+            <EntityType Name="Matche">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ScoreTeam1" Type="Edm.Int32"/>
+                <Property Name="ScoreTeam2" Type="Edm.Int32"/>
+                <NavigationProperty Name="TeamDetails" Relationship="odataJPAService.Matche_Team_One_ZeroToOne0" FromRole="Matche" ToRole="Team"/>
+                <NavigationProperty Name="TeamDetails1" Relationship="odataJPAService.Matche_Team_One_ZeroToOne1" FromRole="Matche" ToRole="Team"/>
+            </EntityType>
+            <EntityType Name="Team">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="PlayerLname1" Type="Edm.String"/>
+                <Property Name="PlayerLname2" Type="Edm.String"/>
+                <Property Name="PlayerName1" Type="Edm.String"/>
+                <Property Name="PlayerName2" Type="Edm.String"/>
+            </EntityType>
+            <Association Name="Matche_Team_One_ZeroToOne1">
+                <End Type="odataJPAService.Matche" Multiplicity="1" Role="Matche"/>
+                <End Type="odataJPAService.Team" Multiplicity="0..1" Role="Team"/>
+            </Association>
+            <Association Name="Matche_Team_One_ZeroToOne0">
+                <End Type="odataJPAService.Matche" Multiplicity="1" Role="Matche"/>
+                <End Type="odataJPAService.Team" Multiplicity="0..1" Role="Team"/>
+            </Association>
+            <EntityContainer Name="odataJPAServiceContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Matches" EntityType="odataJPAService.Matche"/>
+                <EntitySet Name="Teams" EntityType="odataJPAService.Team"/>
+                <AssociationSet Name="Matche_Team_One_ZeroToOne1Set" Association="odataJPAService.Matche_Team_One_ZeroToOne1">
+                    <End EntitySet="Matches" Role="Matche"/>
+                    <End EntitySet="Teams" Role="Team"/>
+                </AssociationSet>
+                <AssociationSet Name="Matche_Team_One_ZeroToOne0Set" Association="odataJPAService.Matche_Team_One_ZeroToOne0">
+                    <End EntitySet="Matches" Role="Matche"/>
+                    <End EntitySet="Teams" Role="Team"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

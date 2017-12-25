@@ -1,0 +1,72 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild",
+    "com.sap.webide.hybrid.cordova"
+  ],
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "buildRequired": true
+  },
+  "generation": [
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationProjectCommon",
+      "templateVersion": "1.32.0",
+      "dateTimeStamp": "Mon, 25 Dec 2017 10:53:54 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationProject",
+      "templateVersion": "1.40.12",
+      "dateTimeStamp": "Mon, 25 Dec 2017 10:53:56 GMT"
+    },
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Mon, 25 Dec 2017 11:02:09 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "basevalidator": {
+    "services": {
+      "xml": "fioriXmlAnalysis",
+      "js": "fioriJsValidator"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  },
+  "hybrid": {
+    "hatVersion": "1.28.0",
+    "appNamespace": "table_football",
+    "backendDestination": "odata",
+    "oDataConfigs": [
+      {
+        "hybridOdata": {
+          "name": "tf_backend",
+          "serviceUrl": ""
+        },
+        "originOdata": {
+          "name": "tf_backend",
+          "serviceUrl": "/ft_backend/tf_backend/"
+        }
+      }
+    ]
+  },
+  "mockpreview": {
+    "mockUri": "/ft_backend/tf_backend",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  }
+}
